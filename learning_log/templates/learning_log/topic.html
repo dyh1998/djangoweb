@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指定主题</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+{% extends 'learning_log/base.html' %}<!--第一行必须包含此标签，让Django知道它继承哪个夫模板-->
+{% block content %}
+<p>Topic:{{topic}}</p>
+
+<p>Notes:</p>
+<p>
+    <a href="{%url 'learning_log:new_entry' topic.id%}">Add</a>
+</p>
+<ul>
+    {%for entry in entries%}
+    <li>
+        <p>{{entry.date_added|date:'M d,Y H:i'}}</p><!--以M d, Y H:i这样的格式显示时间戳，接下来的一行显示text的完整值，而不仅仅是前50个字母-->
+        <p>{{entry.text|linebreaks}}</p><!--竖线表示过滤器-->
+        <p><a href="{%url 'learning_log:edit_entry' entry.id%}">Edit</a></p>
+    </li>
+    {%empty%}<!--使用此模板标签打印一条消息，告诉用户当前主题还没有条目-->
+        <li>
+            There are no entries for this topic yet.
+        </li>
+    {%endfor%}
+</ul>
+{% endblock content %}
+</body>
+</html>

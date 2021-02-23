@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit_entry</title>
+</head>
+<body>
+    {% extends "learning_log/base.html" %}<!--第一行必须包含此标签，让Django知道它继承哪个夫模板-->
+    {% block content %}
+    <p>
+        <a href="{% url 'learning_log:topic' topic.id %}">{{topic}}</a>
+    </p>
+    <p>Edit entry:</p>
+    <form action="{% url 'learning_log:edit_entry' entry.id %}" method='post'>
+        {% csrf_token%}
+        {{form.as_p}}
+        <button name="submit">submit</button>
+    </form>
+    {% endblock content %}
+</body>
+</html>

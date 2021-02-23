@@ -1,0 +1,18 @@
+<!--继承模板-->
+<!--在子模块中只需包含当前网页特有的内容-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人主页</title>
+    <link rel="stylesheet" href="/static/css/style.css/">
+</head>
+<body>
+    {% extends "learning_log/base.html" %}<!--第一行必须包含此标签，让Django知道它继承哪个夫模板-->
+    {% block content %}
+<!--    <div id="index_view" align="center">-->
+<!--        <img src="/static/img/love.jpg/" id="index_img1">-->
+<!--    </div>-->
+    {% endblock content %}
+</body>
+</html>

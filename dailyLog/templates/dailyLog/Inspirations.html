@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'learning_log/base.html' %}
+{% block content %}
+    <p><a href="{% url 'dailyLog:newEditIns' %}">Add your inspiration</a></p>
+    <ul>
+        {% for insp in ins %}
+            <li>
+            <p>Date：{{ insp.date_created|date:'Y M d' }}</p>
+            <p>Topic：{{ insp.topic }}</p>
+            <p>Details：{{ insp.detail }}</p>
+            </li>
+        {% empty %}
+            <li>记下你的灵感！</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
+</body>
+</html>

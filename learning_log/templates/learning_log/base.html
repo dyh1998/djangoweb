@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learning log</title>
+    <link rel="stylesheet" href="/static/css/2.css/">
+</head>
+<body>
+<div align="center" id="base_view">
+    <div><a href="{% url 'learning_log:index' %}" class="a_index">Return</a></div>
+    <div><a href="{% url 'learning_log:topics' %}" class="a_index">Learning Log</a></div>
+    <div><a href="{% url 'dailyLog:showDia' %}" class="a_index">Diary</a></div>
+    <div><a href="{% url 'dailyLog:showIns' %}" class="a_index">Inspiration</a></div>
+    {% if user.is_authenticated %}
+    <div style="color: white; float: right;">{{user.username}}</div>
+    <div><a href="{% url 'user:logout' %}" class="c_index">Log Out</a></div>
+    {% else %}
+    <div><a href="{% url 'user:register' %}" class="b_index">Register</a></div>
+    <div><a href="{% url 'user:login' %}" class="b_index">Log in</a></div>
+    {% endif %}
+</div>
+<div>
+    <img src="/static/img/123.png/" width="100%">
+</div>
+{% block content %}
+{% endblock content %}<!--块标签，占位符-->
+</body>
+</html>

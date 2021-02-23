@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+</head>
+<body>
+{% extends "learning_log/base.html" %}<!--第一行必须包含此标签，让Django知道它继承哪个夫模板-->
+{% block content %}
+
+<form action="{% url 'user:register' %}" method="post">
+    {% csrf_token %}<!--防止攻击者利用表单来获得对服务器未经授权的访问-->
+    {{ form.as_p }}<!--显示表单，修饰符as_p让Django一段落格式渲染所有表单元素-->
+    <button name="submit" class="but">Register</button>
+    <input type="hidden" name="text" value="{% url 'learning_log:index' %}" />
+</form>
+{% endblock content %}
+</body>
+</html>

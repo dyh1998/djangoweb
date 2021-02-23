@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'learning_log/base.html' %}
+{% block content %}
+    <p><a href="{% url 'dailyLog:newEditDia' %}">Add your diary</a></p>
+    <ul>
+        {% for diary in diarys %}
+            <li>
+            <p>Date：{{ diary.date_created|date:'Y M d' }}</p>
+            <p>Weather：{{ diary.weather }}</p>
+            <p>Mood：{{ diary.mood }}</p>
+            <p>Event：{{ diary.event }}</p>
+            <p>Process：{{ diary.process }}</p>
+            </li>
+        {% empty %}
+            <li>快来记录你的专属日记吧！</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
+</body>
+</html>

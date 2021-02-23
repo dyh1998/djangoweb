@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主题页面</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    {% extends "learning_log/base.html" %}<!--第一行必须包含此标签，让Django知道它继承哪个夫模板-->
+    {% block content %}
+    <p>Topic Page</p>
+    <ul>
+        {% for topic in topics %}
+            <li><a href="{% url 'learning_log:topic' topic.id%}">{{topic}}</a></li>
+        {% empty %}
+            <li>No topics have been added yet.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'learning_log:new_topic'%}" id="a_new_topic" >Add</a>
+    {% endblock content %}
+</body>
+</html>
