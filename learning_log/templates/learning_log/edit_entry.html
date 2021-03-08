@@ -11,6 +11,7 @@
         <a href="{% url 'learning_log:topic' topic.id %}">{{topic}}</a>
     </p>
     <p>Edit entry:</p>
+<!--    action是向何处发送表单数据，post是向服务器提交数据-->
     <form action="{% url 'learning_log:edit_entry' entry.id %}" method='post'>
         {% csrf_token%}
         {{form.as_p}}

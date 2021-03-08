@@ -11,6 +11,7 @@
     <div><a href="{% url 'learning_log:topics' %}" class="a_index">Learning Log</a></div>
     <div><a href="{% url 'dailyLog:showDia' %}" class="a_index">Diary</a></div>
     <div><a href="{% url 'dailyLog:showIns' %}" class="a_index">Inspiration</a></div>
+    <div><a href="{% url 'title:titles' %}" class="a_index">Blog</a></div>
     {% if user.is_authenticated %}
     <div style="color: white; float: right;">{{user.username}}</div>
     <div><a href="{% url 'user:logout' %}" class="c_index">Log Out</a></div>

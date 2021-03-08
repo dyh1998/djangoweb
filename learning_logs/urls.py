@@ -21,4 +21,6 @@ urlpatterns = [
     path('user/', include(('user.urls', 'user'), namespace='user')),
     path('', include(('learning_log.urls', 'learning_log'), namespace="learning_log")),
     path('dailyLog/', include(('dailyLog.urls', 'dailyLog'), namespace='dailyLog')),
+    path('titles/', include(('titles.urls', 'title'), namespace='title')),
+    path('comments/', include(('comments.urls', 'comment'), namespace='comment')),
 ]

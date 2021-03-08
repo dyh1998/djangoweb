@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'cseijm#%^*$c0!fi%!qy+i%et#-$bgf!cur_imn66@3m)_@&mf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'dyhsup.cn']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'www.dyhsup.cn']
 
 # Application definition
 
@@ -35,12 +35,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pure_pagination',
     # 第三方应用程序
     # 'bootstrap3',
     # 我的应用程序
     'user',
     'dailyLog',
     'learning_log',
+    'titles',
+    'comments',
 ]
 
 MIDDLEWARE = [
